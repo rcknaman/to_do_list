@@ -4,7 +4,8 @@
   "description": "a basic todo list app",
   "main": "todolist.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon todolist.js"
   },
   "repository": {
     "type": "git",
