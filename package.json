@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rcknaman/to_do_list#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^6.0.7"
   }
 }
