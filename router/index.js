@@ -1,8 +1,7 @@
 const express=require('express');
-const ctrl = require('../controller/controller');
 const router=express.Router();
 console.log('router is setteled');
+const ctrl = require('../controller/controller');
 
 router.get('/',ctrl.home);
-console.log('router');
 module.exports=router;
