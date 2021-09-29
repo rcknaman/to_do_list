@@ -3,7 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+@keyframes background {
 
+    0% {
+        background-color:#090909 ;
+    }
+    25%{
+        background-color:#1b1b1b;
+    }
+    75%{
+        background-color:#1b1b1b;
+    }
+    100%{
+        background-color: #090909;
+    }
+}
+::selection{
+    color: var(--btn-txt);
+    background: var(--modal-bc);
+}
 body {
     display: flex;
     justify-content: center;
@@ -21,7 +39,7 @@ body {
     --opt-hov: rgb(190, 186, 178);
     --opt-hov-txt: rgb(41, 5, 5);
     --btn-txt: rgb(230, 219, 219);
-    --li-color: rgb(99, 24, 74);
+    --li-color: rgb(37, 36, 37);
 }
 
 form {
@@ -32,19 +50,21 @@ form {
 #modal {
     margin-top: 10px;
     width: 60vw;
-    min-height: 60vh;
+    min-height: auto;
     background-color: var(--modal-bc);
     padding: 3px;
     box-sizing: border-box;
-    box-shadow: 0 0 10px 2px gray;
+    box-shadow: 0 0 200px 50px rgb(39, 38, 38);
     z-index: 2;
     position: relative;
     border-radius: 5px;
+    padding: 5px;
 }
 
 #modal>h1 {
     text-align: center;
     color: var(--txt-color);
+    pointer-events: none;
 }
 
 #input_sec>div {
@@ -195,6 +215,12 @@ form {
     align-items: center;
 }
 
+#drp-dwn input {
+    height: 0;
+    border: none;
+    outline: none;
+}
+
 #drp-dwn ul {
     list-style: none;
     /*  */
@@ -221,6 +247,7 @@ form {
 #drp-dwn ul li a {
     text-decoration: none;
     color: var(--txt-color);
+    pointer-events: none;
 }
 
 #drp-dwn ul li:hover {
@@ -256,21 +283,34 @@ form {
     z-index: 0;
     position: relative;
 }
-
-#list_sec {
+#todolist{
+    animation-name: background;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    transition: all .25s ease;
+}
+.todo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2px;
     z-index: 0;
     position: relative;
+    transition: all 0.2s ease;
+    /* flex-wrap: wrap; */
 }
 
-#list_sec>div {
+.todo>div {
     padding: 2px;
     color: var(--txt-color);
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #fff; */
+    
 }
-
+.todo>div>*{
+    margin: 3px;
+}
 #btn_sec>* {
     border-radius: 5px;
     padding: 3px;
@@ -297,4 +337,40 @@ form {
     border-color: gray black black gray;
     border-style: solid;
     border-width: 2px;
+}
+#btn_sec a p{
+    pointer-events: none;
+}
+
+@media screen and (max-width:860px){
+    #modal{
+        width: 80vw;
+    }
+}
+@media screen and (max-width:620px){
+    #modal{
+        width: 98vw;
+    }
+}
+@media screen and (max-width:330px){
+    #addn-info{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        box-sizing: content-box;
+    }
+}
+@media screen and (max-width:310px){
+
+    #addn-info>div{
+        width: 80%;
+    }
+    .todo{
+        flex-direction: column;
+        align-items: start;
+    }
+    #todo-date{
+        align-self: flex-end;
+    }
 }

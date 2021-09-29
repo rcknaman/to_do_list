@@ -1,20 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-<div id="modal">
-    <h1>hello world </h1>
-    <div id="input_sec"></div>
-    <div id="btn_sec"></div>
-    <div id="list_sec"></div>
-</div>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/668c785be9.js" crossorigin="anonymous"></script>
 
+
+    <title><%= title %> </title>
+</head>
+
+<body>
+
+    <div id="modal">
+        <h1>Todo App </h1>
+        <form method="POST" action="/todo">
+            <div id="input_sec">
+
+                <div id="description">
+                    <div id="desc-body">
+                        <input type="text" required name="description" value="" autocomplete="off">
+                        <label for="">
+                            <span>Description</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="addn-info">
+                    <div id="cate">
+                        <div id="drp-dwn">
+                            <div id="drp-txt">
+                                <p>Category</p>
+                                <div id="drp-sym"><i class="fas fa-angle-down"></i></div>
+                            </div>
+                            <input type="text" name="Category" value="" required>
+                            <ul>
+                                <li><a>School</a></li>
+                                <li><a>Office</a></li>
+                                <li><a>College</a></li>
+                                <li><a>Personal</a></li>
+                                <li><a>Others..</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="date">
+                        <p>Due Date</p>
+                        <input type="date" name="date" value="" required>
+                    </div>
+                </div>
+            </div>
+            <div id="btn_sec">
+                <button type="submit"><i class="fas fa-plus"></i><p>&nbsp; ADD TASK</p> </button>
+                <a href="/delete/?values="><i class="fas fa-trash-alt fa-1x"></i><p>&nbsp; DELETE</p> </a>
+            </div>
+        </form>
+        <div id="todolist">
+            <% for(let item of list){ %>
+                <div class="todo">  
+                    <div><input type="checkbox" name="check" value="<%= item._id %> "><%= item.description %> </div>
+                    <div id="todo-date"><i class="fas fa-calender-week"><%= item.date %> </i></div>
+                </div>
+            <% } %> 
+            
+        </div>
+    </div>
+    <script src="/frontjava.js" type="text/javascript"></script>
 
 </body>
+
 </html>
