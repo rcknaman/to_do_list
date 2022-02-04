@@ -60,7 +60,11 @@
             <% for(let item of list){ %>
                 <div class="todo">  
                     <div><input type="checkbox" name="check" value="<%= item._id %> "><%= item.description %> </div>
-                    <div id="todo-date"><i class="fas fa-calender-week"><%= item.date %> </i></div>
+                    <div>
+                        <div id="todo-date"><i class="fas fa-calender-week"><%= item.date %> </i></div>
+                        <div><%= item.Category %> </div>
+                    </div>
+
                 </div>
             <% } %> 
             

@@ -58,7 +58,7 @@ form {
     z-index: 2;
     position: relative;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px ;
 }
 
 #modal>h1 {
@@ -259,7 +259,6 @@ form {
 }
 
 #drp-dwn ul.active {
-    /* display: block; */
     transition: all 0.5 ease;
     height: 210px;
     padding: 5px;
@@ -279,7 +278,8 @@ form {
     justify-content: space-evenly;
     margin-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-clr);
+    border-bottom: 1px groove var(--border-clr);
+    margin-bottom: 5px;
     z-index: 0;
     position: relative;
 }
@@ -288,18 +288,23 @@ form {
     animation-duration: 4s;
     animation-iteration-count: infinite;
     transition: all .25s ease;
+    position: relative;
 }
+
 .todo {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 2px;
     z-index: 0;
     position: relative;
     transition: all 0.2s ease;
-    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-items: start;
 }
-
+.todo::after{
+    content: "";
+    width: 80%;
+    border-bottom: 1px solid white;
+}
 .todo>div {
     padding: 2px;
     color: var(--txt-color);
@@ -307,6 +312,17 @@ form {
     justify-content: space-between;
     /* background-color: #fff; */
     
+}
+.todo>div:nth-of-type(2)>div:nth-of-type(2){
+    height:90%;
+    width: fit-content;
+    padding: 3px;
+    background-color: #fff;
+    color: black;
+    border-radius: 2px;
+}
+.todo>div:nth-of-type(2){
+    align-self: flex-end;
 }
 .todo>div>*{
     margin: 3px;
